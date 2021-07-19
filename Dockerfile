@@ -7,11 +7,12 @@ FROM linuxserver/code-server
 #      && pip3 install setuptools_rust \
 #      && pip3 install QUANTAXIS -U \
 
-RUN apt-get update \
-      && apt-get install -y vim wget python3.8 python3.8-pip python3.8-venv \
-      && apt-get clean \
-      && apt-get autoclean \
-      && rm -rf /var/lib/apt/lists/*  \
+RUN apt-get update && \
+      apt-get install --no-install-recommends -y \
+      python3.8 python3-pip python3.8-dev \
+      # && apt-get clean \
+      # && apt-get autoclean \
+      # && rm -rf /var/lib/apt/lists/*  \
       && pip3 install QUANTAXIS -U
 
 # RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh -O ~/anaconda.sh && \
