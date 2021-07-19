@@ -8,7 +8,7 @@ FROM linuxserver/code-server
 #      && pip3 install QUANTAXIS -U \
 
 RUN apt-get update \
-      && apt-get install -y vim wget python3.8 python3-pip python3-dev \
+      && apt-get install -y vim wget python3.8 python3.8-pip python3.8-venv \
       && apt-get clean \
       && apt-get autoclean \
       && rm -rf /var/lib/apt/lists/*  \
