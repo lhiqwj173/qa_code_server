@@ -1,6 +1,7 @@
 FROM linuxserver/code-server
 
-#RUN apt-get update \
+RUN apt-get update \
+     && apt-get install -y vim wget
 #      && apt-get install -y vim python3.8 python3-distutils python3-pip python3-numba \
 #      && ln -sf /usr/bin/python3.8 /usr/bin/python \
 #      && pip3 install Image \
