@@ -6,14 +6,21 @@ FROM linuxserver/code-server
 #      && pip3 install Image \
 #      && pip3 install setuptools_rust \
 #      && pip3 install QUANTAXIS -U \
-
-RUN apt-get update && \
-      apt-get install --no-install-recommends -y \
-      python3.8 python3-pip python3.8-dev \
-      # && apt-get clean \
-      # && apt-get autoclean \
-      # && rm -rf /var/lib/apt/lists/*  \
-      && pip3 install QUANTAXIS -U
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh 
+    
+RUN pip3 install --upgrade pip &&\
+	pip3 install setuptools>=41.0.0
+# RUN apt-get update && \
+#       apt-get install --no-install-recommends -y \
+#       python3.8 python3-pip python3.8-dev \
+#       # && apt-get clean \
+#       # && apt-get autoclean \
+#       # && rm -rf /var/lib/apt/lists/*  \
+#       && pip3 install QUANTAXIS -U
 
 # RUN wget --quiet https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh -O ~/anaconda.sh && \
 #     /bin/bash ~/anaconda.sh -b -p ~/anaconda3 && \
